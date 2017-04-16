@@ -37,7 +37,7 @@ def main():
                                 except:
                                     print("\nThat is not a number.")
                                 else:
-                                    search_by_time_spent(time)
+                                    search_by_time_spent(int(time))
                             elif choice == 2:
                                 string = input("\nEnter a string you would like to search for in title and notes: ")
                                 search_by_exact_search(string)
@@ -61,9 +61,14 @@ def main():
                                         elif option == 2:
                                             date1 = input("\nEnter the start date of the range (DD/MM/YYYY): ")
                                             date2 = input("\nEnter the end date of the range (DD/MM/YYYY): ")
-                                            search_by_date(0, rang=True, dates=[date1, date2])
+                                            if re.match('\d\d/\d\d/\d\d\d\d', date1) is not None:
+                                                if re.match('\d\d/\d\d/\d\d\d\d', date2) is not None:
+                                                    search_by_date(0, rang=True, dates=[date1, date2])
+                                            else:
+                                                print("Make sure you enter both dates in the format DD/MM/YYY e.g. 25/12/2017")
                 elif action == 3:
                     dont_quit = False
                                             
                                 
+
 main()
