@@ -1,7 +1,3 @@
-from record import Record
-import csv
-import re
-
 def add_record():
     """Takes title, date and notes from the user and creates
        an instance of Record with them"""
